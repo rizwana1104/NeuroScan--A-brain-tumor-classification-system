@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroScan AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <div class="content-side">
+            <div class="brand">
+                <div class="logo-dot"></div>
+                <span>NeuroScan</span>
+            </div>
+            <h1 class="hero-title">AI-Powered<br>Brain Tumor<br>Detection.</h1>
+            <p class="hero-desc">
+                Advanced deep learning algorithms to assist in early diagnosis and classification of brain tumors from
+                MRI scans. Fast, accurate, and secure.
+            </p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-val">80%</span>
+                    <span class="stat-label">Accuracy</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">
+                        < 1s</span>
+                            <span class="stat-label">Speed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="interaction-side">
+            <div class="glass-card">
+                <div class="upload-section">
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <label for="imageInput" class="upload-box" id="dropZone">
+                        <div class="icon-circle">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 16L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M9 11L12 8 15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M8 16H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <h3>Upload MRI Scan</h3>
+                        <p>Supports JPG, PNG</p>
+                    </label>
+
+                    <div id="previewContainer" class="hidden">
+                        <img id="imagePreview" src="" alt="Preview">
+                        <button id="removeImage" class="icon-btn">✕</button>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="predictBtn" class="primary-btn" disabled>
+                        Run Analysis
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="loading" class="loading hidden">
+                    <div class="loader-bar"></div>
+                    <p>Processing...</p>
+                </div>
+
+                <div id="resultSection" class="result-section hidden">
+                    <div class="result-header">
+                        <span class="result-label">Diagnosis Result</span>
+                        <span class="confidence-badge" id="confidenceBadge">--%</span>
+                    </div>
+                    <h2 id="resultClass">--</h2>
+                    <p class="result-desc">Based on the analysis of the uploaded MRI scan.</p>
+                    <p id="explanationText" class="explanation-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Medical Disclaimer Modal -->
+    <div id="disclaimerModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="warning-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h2>Medical Disclaimer</h2>
+            </div>
+            <div class="modal-body">
+                <p><strong>Important:</strong> This application uses Artificial Intelligence to analyze MRI scans. The
+                    results provided are for <strong>educational and informational purposes only</strong>.</p>
+                <p>This tool is <strong>NOT</strong> a substitute for professional medical advice, diagnosis, or
+                    treatment. Always seek the advice of your physician or other qualified health provider with any
+                    questions you may have regarding a medical condition.</p>
+                <p>Do not disregard professional medical advice or delay in seeking it because of something you have
+                    read on this website.</p>
+            </div>
+            <button id="acceptDisclaimer" class="primary-btn">I Understand & Agree</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
